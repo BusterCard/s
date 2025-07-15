@@ -21,23 +21,11 @@ int main() {
         Tablero tablero;
         // Cargar el tablero desde un archivo
         tablero.cargarDesdeArchivo("dataTablero.txt");
-        // Crear el avatar CPU en una posición inicial
-        AvatarCPU avatarCPU;  //Avatar Cpu
-        avatarCPU.setPosicionFila(2);
-        avatarCPU.setPosicionColumna(2);
-        // Crear la lógica de movimiento aleatorio
-        LogicaMovimientoAleatorio logicaAleatoria;
-        // Crear el juego
-        Juego juego(&tablero, &avatarCPU, &logicaAleatoria, true);
-        // Crear el avatar innovador en una posición inicial
-
-        AvatarInnovador avatarInnovador; //Avatar Innovador
-        avatarInnovador.setPosicionFila(2);
-        avatarInnovador.setPosicionColumna(2);
-        // Crear la lógica de movimiento innovadora
-        LogicaMovimientoInnovador logicaInnovadora;
-        // Crear el juego
-        Juego juego(&tablero, &avatarInnovador, &logicaInnovadora, true);
+       Avatar avatar;
+        avatar.setPosicionFila(2);
+        avatar.setPosicionColumna(2);
+        LogicaDeMovimiento logicaDeMovimiento;
+        Juego juego(&tablero, &avatar, &logicaDeMovimiento, true);
        
         juego.iniciar();
         VistaConsola vista(&tablero, &avatar);
