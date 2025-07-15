@@ -8,6 +8,8 @@
 #include "LogicaDeMovimiento.h"
 #include "VistaConsola.h"
 #include "Avatar.h"
+#include "AvatarCPU.h"
+#include "LogicaMovimientoAleatorio.h"
 #include <iostream>
 #include <cstdlib> // Para system
 
@@ -17,14 +19,14 @@ int main() {
         Tablero tablero;
         // Cargar el tablero desde un archivo
         tablero.cargarDesdeArchivo("dataTablero.txt");
-         // Crear el avatar en una posición inicial
-        Avatar avatar; // Posición inicial en (2,2)
-        avatar.setPosicionFila(2);
-        avatar.setPosicionColumna(2);
-        // Crear la lógica de movimiento
-        LogicaDeMovimiento logicaDeMovimiento;
-        //Crear un juego
-        Juego juego(&tablero, &avatar, &logicaDeMovimiento, true);
+        // Crear el avatar CPU en una posición inicial
+        AvatarCPU avatarCPU;
+        avatarCPU.setPosicionFila(2);
+        avatarCPU.setPosicionColumna(2);
+        // Crear la lógica de movimiento aleatorio
+        LogicaMovimientoAleatorio logicaAleatoria;
+        // Crear el juego
+        Juego juego(&tablero, &avatarCPU, &logicaAleatoria, true);
         juego.iniciar();
         VistaConsola vista(&tablero, &avatar);
         do{
